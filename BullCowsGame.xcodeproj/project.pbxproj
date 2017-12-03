@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		B7B98DAE1EB9156A00E53553 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7B98DAD1EB9156A00E53553 /* main.cpp */; };
 		B7B98DB61EBDD96800E53553 /* FBullCowsGame.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7B98DB41EBDD96800E53553 /* FBullCowsGame.cpp */; };
+		B7E3DC391FD0575600E31E1C /* FGeuss.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7E3DC381FD0575600E31E1C /* FGeuss.cpp */; };
+		B7E3DC3C1FD16B9200E31E1C /* FIsogram.cpp in Sources */ = {isa = PBXBuildFile; fileRef = B7E3DC3B1FD16B9100E31E1C /* FIsogram.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +30,10 @@
 		B7B98DAD1EB9156A00E53553 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		B7B98DB41EBDD96800E53553 /* FBullCowsGame.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FBullCowsGame.cpp; sourceTree = "<group>"; };
 		B7B98DB51EBDD96800E53553 /* FBullCowsGame.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FBullCowsGame.hpp; sourceTree = "<group>"; };
+		B7E3DC371FD0511200E31E1C /* FGeuss.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = FGeuss.hpp; sourceTree = "<group>"; };
+		B7E3DC381FD0575600E31E1C /* FGeuss.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FGeuss.cpp; sourceTree = "<group>"; };
+		B7E3DC3A1FD16B9100E31E1C /* FIsogram.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = FIsogram.hpp; sourceTree = "<group>"; };
+		B7E3DC3B1FD16B9100E31E1C /* FIsogram.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FIsogram.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,9 +66,13 @@
 		B7B98DAC1EB9156A00E53553 /* BullCowsGame */ = {
 			isa = PBXGroup;
 			children = (
+				B7E3DC3B1FD16B9100E31E1C /* FIsogram.cpp */,
+				B7E3DC3A1FD16B9100E31E1C /* FIsogram.hpp */,
 				B7B98DAD1EB9156A00E53553 /* main.cpp */,
 				B7B98DB41EBDD96800E53553 /* FBullCowsGame.cpp */,
 				B7B98DB51EBDD96800E53553 /* FBullCowsGame.hpp */,
+				B7E3DC371FD0511200E31E1C /* FGeuss.hpp */,
+				B7E3DC381FD0575600E31E1C /* FGeuss.cpp */,
 			);
 			path = BullCowsGame;
 			sourceTree = "<group>";
@@ -125,6 +135,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B7B98DAE1EB9156A00E53553 /* main.cpp in Sources */,
+				B7E3DC3C1FD16B9200E31E1C /* FIsogram.cpp in Sources */,
+				B7E3DC391FD0575600E31E1C /* FGeuss.cpp in Sources */,
 				B7B98DB61EBDD96800E53553 /* FBullCowsGame.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

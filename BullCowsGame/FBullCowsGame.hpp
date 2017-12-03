@@ -6,45 +6,41 @@
 //  Copyright © 2017 Frank Martin. All rights reserved.
 //
 
+#pragma once
 #include <string>
+#include <vector>
+#include "FGeuss.hpp"
 
 class FBullCowsGame{
 
     public:
     
-        // generates new secret and resets number of tries
-        void reset();
-    
-        // Returns the maximum number of tries
-        int getMaxTries();
-    
-        // Prints the Intoduction
-        void printIntoduction();
-    
-        // Prints the requirements of the geuss
-        void printValidConditions();
-    
-        // Checks if the geuss is correct
-        bool isGameWon(std::string geuss);
-    
-        // Returns how many guesses the user has made
-        int getCurrentTry();
-    
-    
-        bool hasTurns();
-    
-        bool isValid(std::string geuss);
-    
         // Constructor
-        FBullCowsGame(int length, int maxTries);
+        FBullCowsGame(int wordLength, int turns);
     
-        int currentTry;
+        // Get a new user geuss
+        int UserGeuss();
+        bool UserPlayAgain();
+        void printBullsAndCows();
     
+    protected:
+
+        void reset(int wordLength, int turns);
+        void setNewIsogram(int length);
+
     private:
     
-        int maxTries;
-        std::string secret;
-    
-        std::string generateSecret(int length);
+        void printIntoduction();
+        void printValidConditions();
+        void printAskUserToPlayAgain();
+        void printWinMessage();
+        void printLostMessage();
+        void printTurnMessage();
+        
+        int turn = 0; //current turn
+        int turns = 10; // number of turns
+        FIsogram isogram;
+        std::vector<FGeuss> geusses;    
+        
     
 };
