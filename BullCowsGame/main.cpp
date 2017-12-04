@@ -12,7 +12,7 @@
 
 using int32 = int;
 
-constexpr int WORD_LENGTH = 7;
+constexpr int WORD_LENGTH = 4;
 constexpr int TURNS = 10;
 
 void PlayGame();

@@ -11,6 +11,8 @@
 #include "FGeuss.hpp"
 #include <iostream>
 #include <string>
+#include <ctime>
+#include <cstdlib>
 
 FBullCowsGame::FBullCowsGame(int wordLength, int turns){
     this->reset(wordLength, turns);
@@ -28,7 +30,7 @@ bool FBullCowsGame::UserPlayAgain(){
     std::string response;
     this->printAskUserToPlayAgain();
     std::getline(std::cin,response);
-    this->reset((int)this->isogram.length(),this->turns);//maybe not the best place
+    this->reset((int)this->isogram.length(),this->turns);// TODO : place this on a more appropiate place
     return (response[0] == 'y' || response[0] == 'Y');
 }
 
@@ -65,7 +67,26 @@ int FBullCowsGame::UserGeuss(){
 // Prints
 
 void FBullCowsGame::setNewIsogram(int wordLength){
-    this->isogram = "ISOGRAM";
+    
+    // Initialization 
+    std::string secret = "";
+    char letter;
+    
+    // select random numbers
+    for(int i = 0; i < wordLength; i++){
+        
+        // keep randomly selecting letters till unique letter is found
+        do{
+            letter = 'a' + std::rand()%26; // generate new letter
+        }while(secret.find(letter) != std::string::npos);
+        
+        // Store unique letter
+        secret+=letter;
+    }
+    
+    // Set the objects value
+    this->isogram = secret;
+    return;
 }
 
 void FBullCowsGame::printIntoduction() {

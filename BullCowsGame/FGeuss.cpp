@@ -10,7 +10,7 @@
 #include <iostream>
 #include <string>
 
-constexpr int WORD_LENGTH = 7; // TODO : place this some where appropiate, or let the user set this
+constexpr int WORD_LENGTH = 4; // TODO : place this some where appropiate, or let the user set this
 
 void FGeuss::printBullsAndCows(std::string isogram){
     

@@ -15,10 +15,7 @@ class FBullCowsGame{
 
     public:
     
-        // Constructor
         FBullCowsGame(int wordLength, int turns);
-    
-        // Get a new user geuss
         int UserGeuss();
         bool UserPlayAgain();
         void printBullsAndCows();
