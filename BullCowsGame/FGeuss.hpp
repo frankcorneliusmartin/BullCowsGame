@@ -10,15 +10,22 @@
 #include <string>
 #include "FIsogram.hpp"
 
+// Initialized zero
+struct FBullCowCount{
+    int bulls = 0;
+    int cows = 0;
+};
+
 class FGeuss : public FIsogram{
 
     public:
         void getUserGeuss();
-        void printBullsAndCows(std::string isogram);
+        void printBullsAndCows(std::string);
         FGeuss();
+        bool isValid();
     
     private:
-        int bulls, cows, miss;
-        void countBullsAndCows(std::string isogram);
+        int bulls, cows;
+        FBullCowCount countBullsAndCows(std::string);
     
 };

@@ -15,18 +15,19 @@ class FIsogram{
     public:
     
         FIsogram(std::string isogram = "");
-        bool isValid(size_t secretLength);
-        size_t length();
-        void setIsogram(std::string isogram);
-        std::string getIsogram();
     
+        bool isValid() const; // TODO : no argument length should be required
+    
+        void setIsogram(std::string isogram);
+        size_t length() const;
+        std::string getIsogram() const;
         FIsogram operator=(std::string isogram);
         bool operator==(FIsogram isogram);
         friend std::ostream& operator<<(std::ostream& os, const FIsogram isogram);
     
-        std::string isogram;
-    
     protected:
+    
+        std::string isogram;
     
     
     

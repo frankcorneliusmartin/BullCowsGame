@@ -10,23 +10,22 @@
 #include <iostream>
 #include <string>
 
-void FGeuss::printBullsAndCows(std::string isogram){
+constexpr int WORD_LENGTH = 7; // TODO : place this some where appropiate, or let the user set this
 
+void FGeuss::printBullsAndCows(std::string isogram){
+    
     // Count bulls and Cows
-    this->countBullsAndCows(isogram);
+    FBullCowCount bullsAndCows = this->countBullsAndCows(isogram);
     
 	// Print Something Readable 
-	std::cout << this->isogram << "[";
-	for(int i = 0; i < this->bulls; i++)
+	std::cout << this->getIsogram() << " [ ";
+	for(int i = 0; i < bullsAndCows.bulls; i++)
         std::cout << "X";
 
-	for(int i = 0; i < this->cows; i++)
+	for(int i = 0; i < bullsAndCows.cows; i++)
         std::cout << "O";
     
-    for(int i = 0; i < this->miss; i++)
-        std::cout << "_";
-
-	std::cout << "]" << std::endl;
+	std::cout << " ] " << std::endl;
 
 }
 
@@ -45,23 +44,34 @@ FGeuss::FGeuss(){
 	this->getUserGeuss();
 }
 
-void FGeuss::countBullsAndCows(std::string isogram){
+FBullCowCount FGeuss::countBullsAndCows(std::string isogram){
 
-	// Initialize 
-	this->cows = 0;
-	this->bulls = 0;
-    this->miss = 0;
-
+    // initialize
+    FBullCowCount bullsAndCows;
+    
 	//count bulls and cows
 	for(int i = 0; i < this->isogram.length(); i++){
 		if(this->isogram[i] == isogram[i]){
-			this->bulls++;
+            bullsAndCows.bulls++;
 		}else if(this->isogram.find(isogram[i]) != std::string::npos){
-			this->cows++;
-        }else{
-            this->miss++;
+            bullsAndCows.cows++;
         }
 	}
+    
+    // return bulls and cows
+    return bullsAndCows;
 
 }
 
+bool FGeuss::isValid(){
+    
+    // check if isogram conditions are met
+    if(!FIsogram::isValid())
+        return false;
+    
+    // check if the length is correct
+    if(this->getIsogram().length() != WORD_LENGTH)
+        return false;
+    
+    return true;
+}

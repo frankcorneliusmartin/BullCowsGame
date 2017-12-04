@@ -41,7 +41,7 @@ int FBullCowsGame::UserGeuss(){
     FGeuss geuss;
 
     // Check if it is a valid Geuss
-    while(!geuss.isValid(this->isogram.length())){
+    while(!geuss.isValid()){
         this->printValidConditions();
         geuss.getUserGeuss();
     }
@@ -68,7 +68,7 @@ void FBullCowsGame::setNewIsogram(int wordLength){
     this->isogram = "ISOGRAM";
 }
 
-void FBullCowsGame::printIntoduction(){
+void FBullCowsGame::printIntoduction() {
     std::cout << "Welcome to this Bull and Cows game!" << std::endl;
     this->printValidConditions();
     std::cout << std::endl;
@@ -79,15 +79,15 @@ void FBullCowsGame::printValidConditions(){
     std::cout << "We are looking for an isogram of " << this->isogram.length() << " letters!" << std::endl;
 }
 
-void FBullCowsGame::printAskUserToPlayAgain(){
+void FBullCowsGame::printAskUserToPlayAgain() const{
     std::cout << "Do you want to play again? (y/n) ";
 }
 
-void FBullCowsGame::printWinMessage(){
+void FBullCowsGame::printWinMessage() const {
     std::cout << "You Win!" << std::endl;   
 }
 
-void FBullCowsGame::printLostMessage(){
+void FBullCowsGame::printLostMessage() const{
     std::cout << "You Lose!" << std::endl;   
 }
 
@@ -103,7 +103,7 @@ void FBullCowsGame::printBullsAndCows(){
     size_t numberOfGeusses = this->geusses.size();
     
     for(int i = 0; i < numberOfGeusses; i++)
-        this->geusses[i].printBullsAndCows(this->isogram.isogram);
+        this->geusses[i].printBullsAndCows(this->isogram.getIsogram());
         
     
 }

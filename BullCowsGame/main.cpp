@@ -8,8 +8,9 @@
 
 #include <iostream>
 #include <string>
-
 #include "FBullCowsGame.hpp"
+
+using int32 = int;
 
 constexpr int WORD_LENGTH = 7;
 constexpr int TURNS = 10;

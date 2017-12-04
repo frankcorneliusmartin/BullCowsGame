@@ -32,9 +32,9 @@ class FBullCowsGame{
     
         void printIntoduction();
         void printValidConditions();
-        void printAskUserToPlayAgain();
-        void printWinMessage();
-        void printLostMessage();
+        void printAskUserToPlayAgain() const;
+        void printWinMessage() const;
+        void printLostMessage() const;
         void printTurnMessage();
         
         int turn = 0; //current turn
