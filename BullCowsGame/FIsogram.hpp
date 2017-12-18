@@ -12,7 +12,7 @@
 
 enum class EIsogramStatus{
     OK,
-    NOT_ISOGRAM
+    Not_Isogram
 };
 
 class FIsogram{

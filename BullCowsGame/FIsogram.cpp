@@ -6,7 +6,10 @@
 //  Copyright © 2017 Frank Martin. All rights reserved.
 //
 
+#include <map>
+#define TMap std::map;
 #include "FIsogram.hpp"
+
 
 FIsogram FIsogram::operator=(std::string isogram){
     this->setIsogram(isogram);
@@ -51,20 +54,41 @@ FIsogram::FIsogram(std::string isogram){
 
 // check that each letter occurs once
 EIsogramStatus FIsogram::isValid() const{
-	
-    // make local copy for sorting
-    std::string l_isogram = this->isogram;
     
-    // sort
-    std::sort(l_isogram.begin(), l_isogram.end());
+    // zero and one letter words are isograms
+    if(this->isogram.length() <= 1)
+        return EIsogramStatus::OK;
     
-    // check if duplicate letters are present
-    for (int i = 0; i < this->isogram.size(); i++)
-    {
-        if (l_isogram[i] == l_isogram[i + 1])
-            return EIsogramStatus::NOT_ISOGRAM;
+    std::map<char,bool> LetterSeen;
+    
+    for(auto letter : this->isogram){
+        if(LetterSeen[letter] == true){
+            return EIsogramStatus::Not_Isogram;
+        }else{
+            LetterSeen[letter] = true;
+        }
     }
- 	
+    
     return EIsogramStatus::OK;
-
+    
 }
+
+//EIsogramStatus FIsogram::isValid() const{
+//
+//    // make local copy for sorting
+//    std::string l_isogram = this->isogram;
+//
+//    // sort
+//    std::sort(l_isogram.begin(), l_isogram.end());
+//
+//    // check if duplicate letters are present
+//    for (int i = 0; i < this->isogram.size(); i++)
+//    {
+//        if (l_isogram[i] == l_isogram[i + 1])
+//            return EIsogramStatus::Not_Isogram;
+//    }
+//
+//    return EIsogramStatus::OK;
+//
+//}
+
