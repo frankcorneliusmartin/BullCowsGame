@@ -1,5 +1,5 @@
 //
-//  FGeuss.hpp
+//  FIsogram.hpp
 //  BullCowsGame
 //
 //  Created by Frank Martin on 06/05/2017.
@@ -10,19 +10,30 @@
 #include <string>
 #include <iostream>
 
+enum class EIsogramStatus{
+    OK,
+    NOT_ISOGRAM
+};
+
 class FIsogram{
 
     public:
     
+        // constructor
         FIsogram(std::string isogram = "");
     
-        bool isValid() const; // TODO : no argument length should be required
-    
-        void setIsogram(std::string isogram);
-        size_t length() const;
+        // getters
         std::string getIsogram() const;
+        EIsogramStatus isValid() const;
+        size_t length() const;
+    
+        // setters
+        void setIsogram(std::string isogram);
+    
+        // operators
+        char operator[] (const int index) const;
         FIsogram operator=(std::string isogram);
-        bool operator==(FIsogram isogram);
+        bool operator==(FIsogram isogram) const;
         friend std::ostream& operator<<(std::ostream& os, const FIsogram isogram);
     
     protected:

@@ -13,8 +13,12 @@ FIsogram FIsogram::operator=(std::string isogram){
     return (*this);
 }
 
-bool FIsogram::operator==(FIsogram isogram){
+bool FIsogram::operator==(FIsogram isogram) const{
     return this->isogram == isogram.isogram;
+}
+
+char FIsogram::operator[] (const int index) const{
+    return this->isogram[index];
 }
 
 void FIsogram::setIsogram(std::string isogram = ""){
@@ -32,7 +36,7 @@ std::string FIsogram::getIsogram() const{
 }
 
 std::ostream& operator<< (std::ostream& os, const FIsogram isogram){
-    os << " --- " << isogram.isogram << " --- ";
+    os << "" << isogram.isogram << "";
     return os;
 }
 
@@ -46,7 +50,7 @@ FIsogram::FIsogram(std::string isogram){
 }
 
 // check that each letter occurs once
-bool FIsogram::isValid() const{
+EIsogramStatus FIsogram::isValid() const{
 	
     // make local copy for sorting
     std::string l_isogram = this->isogram;
@@ -58,9 +62,9 @@ bool FIsogram::isValid() const{
     for (int i = 0; i < this->isogram.size(); i++)
     {
         if (l_isogram[i] == l_isogram[i + 1])
-            return false;
+            return EIsogramStatus::NOT_ISOGRAM;
     }
  	
-    return true;
+    return EIsogramStatus::OK;
 
 }
